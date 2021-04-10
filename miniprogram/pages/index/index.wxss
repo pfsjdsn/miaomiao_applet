@@ -1,0 +1,6 @@
+.index_swiper {
+  margin: 20rpx;
+}
+.index_swiper image {
+  width: 100%;
+}

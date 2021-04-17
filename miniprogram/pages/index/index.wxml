@@ -1,9 +1,31 @@
 <view class="index">
-  <swiper class="index_swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}">
+<!-- 轮播图 -->
+  <swiper class="index_swiper" indicator-dots autoplay circular>
     <block wx:for="{{imgList}}" wx:key="index">
       <swiper-item>
         <image src="{{item}}"></image>
       </swiper-item>
     </block>
   </swiper>
+  <!-- tab切换 -->
+  <view class="index_tab">
+    <view class="active">推荐</view>
+    <view>最新</view>
+  </view>
+  <!-- tab列表 -->
+  <view class="index_list">
+    <view class="index_list_item">
+      <image src="https://s.cn.bing.net/th?id=ODL.b9006520ab53aa98b9717a8328011606&w=197&h=112&c=7&rs=1&qlt=80&dpr=1.5&pid=RichNav" mode="aspectFill"></image>
+      <view class="index_list_text">
+        <text>aaa</text>
+        <text>
+          <text class="iconfont icondianzan"></text>
+          <text>100</text>
+        </text>
+      </view>
+    </view>
+    <view class="index_list_item">
+      <image src="https://s.cn.bing.net/th?id=ODL.b9006520ab53aa98b9717a8328011606&w=197&h=112&c=7&rs=1&qlt=80&dpr=1.5&pid=RichNav"></image>
+    </view>
+  </view>
 </view>

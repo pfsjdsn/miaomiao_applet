@@ -8,10 +8,32 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // 用户头像
     userPhoto: "../../images/tabbar/user_photo.png",
+    // 用户昵称
     nickName: "aa",
+    // 是否登录
     isLogin: false,
-    disabled: false
+    // 登录按钮是否可用
+    disabled: false,
+    // 用户操作列表
+    userList: [
+      {
+        url: '../editUserInfo/editUserInfo',
+        text: '编辑个人信息',
+        iconName: 'iconxiangyou'
+      },
+      {
+        url: '../friendList/friendList',
+        text: '查看好友列表',
+        iconName: 'iconxiangyou'
+      },
+      {
+        url: '../detail/detail',
+        text: '个人主页',
+        iconName: 'iconxiangyou'
+      }
+    ], 
 
   },
   onLoad: function (options) {
@@ -44,6 +66,12 @@ Page({
       })
     })
   },
+  onShow () {
+    this.setData({
+      userPhoto: app.userInfo.userPhoto,
+      nickName: app.userInfo.nickName
+    })
+  },
   bindGetUserInfo(ev) {
     let {
       userInfo
@@ -61,7 +89,9 @@ Page({
           // 点赞
           links: 0,
           // 创建时间
-          time: new Date()
+          time: new Date(),
+          // 是否位置共享
+          isLocation: true
         }
       }).then(res => {
         // 将用户信息写入全局

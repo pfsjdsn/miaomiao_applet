@@ -17,3 +17,14 @@
   margin: 0;
   margin-left: 10rpx;
 }
+.user_list {
+  margin: 40rpx 0 0 0;
+}
+.user_list .user_list_item {
+  height: 50rpx;
+  border-bottom: 1rpx #b4b5b6 dashed;
+  padding: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

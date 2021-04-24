@@ -61,6 +61,18 @@
         {
           "name": "user",
           "pathName": "pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "editUserInfo",
+          "pathName": "pages/editUserInfo/editUserInfo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "signature",
+          "pathName": "pages/editUserInfo/signature/signature",
           "scene": null
         }
       ]

@@ -1,0 +1,9 @@
+<view class="edit_user_info">
+  <navigator url="{{item.url}}" open-type="navigate" wx:for="{{editList}}" 
+    wx:key="index">
+    <view class="edit_list_item">
+      <text>{{item.text}} <text class="edit_list_tips">{{item.tips}}</text></text>
+      <text class="iconfont {{item.iconName}}"></text>
+    </view>
+  </navigator>
+</view>

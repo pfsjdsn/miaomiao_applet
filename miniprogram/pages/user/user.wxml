@@ -4,4 +4,14 @@
     <text  wx:if="{{isLogin}}">欢迎您：{{nickName}}</text>
     <button  wx:else open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="log_btn" disabled="{{disabled}}">微信登录</button>
   </view>
+  <!-- 用户操作 -->
+  <view class="user_list">
+    <navigator url="{{item.url}}" open-type="navigate" wx:for="{{userList}}" 
+    wx:key="index">
+    <view class="user_list_item">
+      <text>{{item.text}}</text>
+      <text class="iconfont {{item.iconName}}"></text>
+    </view>
+    </navigator>
+  </view>
 </view>

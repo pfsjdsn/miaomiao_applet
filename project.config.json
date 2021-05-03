@@ -73,6 +73,19 @@
         {
           "name": "signature",
           "pathName": "pages/editUserInfo/signature/signature",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "detail",
+          "pathName": "pages/detail/detail",
+          "query": "userId=cbddf0af607bf5980225d9df4121d0fb",
           "scene": null
         }
       ]

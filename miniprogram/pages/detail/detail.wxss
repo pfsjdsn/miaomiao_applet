@@ -3,6 +3,7 @@
   border-bottom: 1px #b4b5b6 dashed;
   display: flex;
   align-items: center;
+  padding: 20rpx 0;
 }
 .detail_item image {
   width: 100rpx;

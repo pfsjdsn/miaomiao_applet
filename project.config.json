@@ -87,6 +87,12 @@
           "pathName": "pages/detail/detail",
           "query": "userId=cbddf0af607bf5980225d9df4121d0fb",
           "scene": null
+        },
+        {
+          "name": "message",
+          "pathName": "pages/message/message",
+          "query": "userId=cbddf0af607bf5980225d9df4121d0fb",
+          "scene": null
         }
       ]
     }

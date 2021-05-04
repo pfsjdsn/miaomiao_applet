@@ -16,13 +16,27 @@ exports.main = async (event, context) => {
       // eval 将字符串转成js代码
       event.data = event.data = eval('(' + event.data + ')')
     }
-    return await db.collection(event.collection).doc(event.doc).update({
-      data: {
-        // 扩展
-        ...event.data
-      },
-    })
-  } catch(e) {
+    if (event.doc) {
+      return await db.collection(event.collection).doc(event.doc)
+        .update({
+          data: {
+            // 扩展
+            ...event.data
+          },
+        })
+    } else {
+      return await db.collection(event.collection)
+        .where({
+          ...event.where
+        })
+        .update({
+          data: {
+            // 扩展
+            ...event.data
+          },
+        })
+    } 
+  } catch (e) {
     console.error(e)
   }
 }

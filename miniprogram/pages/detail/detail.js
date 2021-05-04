@@ -50,7 +50,21 @@
               })
             }
             else {
-              
+              wx.cloud.callFunction({
+                name: 'update',
+                data: {
+                  collection: 'message',
+                  where: {
+                    userId: this.data.detail._id
+                  },
+                  // '${app.userInfo._id}'  id在后台是字符串
+                  data: `{list: _.unshift('${app.userInfo._id}')}`
+                }
+              }).then((res) => {
+                wx.showToast({
+                  title: '申请成功~',
+                })
+              })
             }
           }
           // 没有则添加

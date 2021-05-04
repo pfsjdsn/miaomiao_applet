@@ -57,6 +57,7 @@ Page({
             nickName: app.userInfo.nickName,
             isLogin: true,
           })
+          this.getMessage()
         }
         else {
           this.setData({
@@ -107,5 +108,39 @@ Page({
         })
       })
     }
+  },
+  // 监听消息的变化 
+  getMessage () {
+    db.collection('message').where({
+      userId: app.userInfo._id
+    }).watch({
+      onChange: function(snapshot) {
+        console.log(snapshot);
+        
+        if (snapshot.docChanges.length) {
+          let list = snapshot.docChanges[0].doc.list
+          // 如果有未读消息
+          if (list.length) {
+            wx.showTabBarRedDot({
+              index: 2,
+            })
+            app.userMessage = list
+          }
+          // 如果没有未读消息
+          else {
+            wx.hideTabBarRedDot({
+              index: 2,
+            })
+            app.userMessage = list
+          }
+        }
+        else {
+
+        }
+      },
+      onError: function(err) {
+        console.error('the watch closed because of error', err)
+      }
+    })
   }
 })

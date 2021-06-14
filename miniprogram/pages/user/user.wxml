@@ -6,7 +6,7 @@
   </view>
   <!-- 用户操作 -->
   <view class="user_list">
-    <navigator url="{{item.url}}" open-type="navigate" wx:for="{{userList}}" 
+    <navigator url="{{item.url + '?userId=' + id }}" open-type="navigate" wx:for="{{userList}}" 
     wx:key="index">
     <view class="user_list_item">
       <text>{{item.text}}</text>

@@ -14,7 +14,8 @@ exports.main = async (event, context) => {
   try {
     if (typeof event.data == 'string') {
       // eval 将字符串转成js代码
-      event.data = event.data = eval('(' + event.data + ')')
+      // event.data = event.data = eval('(' + event.data + ')')
+      event.data = eval('(' + event.data + ')')
     }
     if (event.doc) {
       return await db.collection(event.collection).doc(event.doc)

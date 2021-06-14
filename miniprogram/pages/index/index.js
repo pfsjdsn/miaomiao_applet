@@ -34,7 +34,7 @@ Page({
       nickName: true, 
       links: true
     })
-    //   按 links排序: 升序
+    //   按 links排序: asc升序，desc降序
     .orderBy(this.data.current, 'desc')
     .get().then((res) => {
       this.setData({

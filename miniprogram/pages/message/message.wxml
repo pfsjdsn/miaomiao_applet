@@ -4,6 +4,6 @@
   </view>
   <view wx:else>
     <text  class="message_text">消息列表</text>
-    <romoveList  wx:for="{{userMessage}}" wx:key="{{index}}" messageId="{{item}}"/>
+    <romoveList  wx:for="{{userMessage}}" wx:key="{{index}}" messageId="{{item}}" bindmyevent="onMyEvent"/>
   </view>
 </view>

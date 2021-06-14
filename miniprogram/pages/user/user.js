@@ -31,9 +31,11 @@ Page({
       {
         url: '../detail/detail',
         text: '个人主页',
-        iconName: 'iconxiangyou'
+        iconName: 'iconxiangyou',
       }
     ], 
+    // 自己当前的用户id
+    id: ''
 
   },
   onLoad: function (options) {
@@ -56,6 +58,7 @@ Page({
             userPhoto: app.userInfo.userPhoto,
             nickName: app.userInfo.nickName,
             isLogin: true,
+            id: app.userInfo._id
           })
           this.getMessage()
         }
@@ -70,7 +73,8 @@ Page({
   onShow () {
     this.setData({
       userPhoto: app.userInfo.userPhoto,
-      nickName: app.userInfo.nickName
+      nickName: app.userInfo.nickName,
+      id: app.userInfo._id
     })
   },
   bindGetUserInfo(ev) {
@@ -92,10 +96,12 @@ Page({
           // 创建时间
           time: new Date(),
           // 是否位置共享
-          isLocation: true
+          isLocation: true,
+          // 好友列表
+          friendList: []
         }
       }).then(res => {
-        // 将用户信息写入全局
+        // 将数据库中的用户信息写入全局
         db.collection('users').doc(res._id).get().then(res => {
           // 用于将所有可枚举属性的值从一个或多个源对象复制到目标对象
           // 将res.data拷贝到app.userInfo
@@ -103,7 +109,8 @@ Page({
           this.setData({
             userPhoto: app.userInfo.userPhoto,
             nickName: app.userInfo.nickName,
-            isLogin: true
+            isLogin: true,
+            id: app.userInfo._id
           })
         })
       })

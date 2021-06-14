@@ -39,7 +39,15 @@ Page({
         }
       })
     }
+  },
+  onMyEvent: function(ev){
+    console.log( ev.detail);
+    this.setData({
+      userMessage: []
+    }, () => {
+      this.setData({
+        userMessage: ev.detail
+      })
+    })
   }
-
-  
 })

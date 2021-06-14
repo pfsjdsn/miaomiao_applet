@@ -1,0 +1,3 @@
+<view wx:for="{{4}}" wx:key="index">
+  <text>我是假数据</text>
+</view>

@@ -9,7 +9,9 @@
     data: {
       detail: {},
       // 是否为好友关系、
-      isFriend: false
+      isFriend: false,
+      // 是否隐藏
+      isHidden: false,
     },
 
     /**
@@ -26,7 +28,25 @@
           detail: res.data
         })
         console.log(this.data.detail);
-        
+        let friendList = res.data.friendList
+        if (friendList.includes( app.userInfo._id)) {
+          this.setData({
+            isFriend: true,
+          })
+        }
+        else {
+          this.setData({
+            isFriend: true
+          }, () => {
+            // 用户看到的是自己的页面
+            if (userId === app.userInfo._id) {
+              this.setData({
+                isFriend: false,
+                isHidden: true
+              })
+            }
+          } )
+        }
       })
       
     },

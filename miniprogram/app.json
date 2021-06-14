@@ -12,7 +12,9 @@
     "pages/editUserInfo/phone/phone",
     "pages/editUserInfo/name/name",
     "pages/editUserInfo/weixin/weixin",
-    "pages/editUserInfo/signature/signature"
+    "pages/editUserInfo/signature/signature",
+    "pages/demo/demo"
+
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

@@ -1,6 +1,9 @@
-<movable-area class="area">
-  <!--  direction="horizontal" 水平方向拖拽 -->
-  <movable-view class="view" direction="horizontal">123</movable-view>
-  <image src=""></image>
-  <view class="delete">删除</view>
-</movable-area>
+  <movable-area class="area">
+    <!--  direction="horizontal" 水平方向拖拽 -->
+    <movable-view class="view" direction="horizontal"
+    bindtap="handleAddFriend">{{userMessage.nickName}}</movable-view>
+    <navigator url="{{'/pages/detail/detail?userId=' + userMessage._id}}" open-type="navigate">
+    <image src="{{userMessage.userPhoto}}"/>
+    </navigator> 
+    <view class="delete" bindtap="handleDelMessage">删除</view>
+  </movable-area>

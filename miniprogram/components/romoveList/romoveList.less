@@ -1,24 +1,25 @@
 .area {
-  width: calc(100% - 40rpx);
+  width: calc(100% - 35rpx);
   height: 100rpx;
   margin: 20rpx;
   position: relative;
-  border-bottom: 1rpx #b4b5b6 dashed;
+  border-bottom: 1px #b4b5b6 dashed;
+
   .view {
     width: calc(100% - 100rpx);
     height: 100%;
     position: absolute;
     left: 100rpx;
     top: 0;
-    line-height: 100rpx;
+    line-height: 110rpx;
     // 首行缩进
     text-indent: 10rpx;
     z-index: 2;
-    border: #fff;
+    background-color: #fff;
   }
   image {
     width: 100rpx;
-    width: 100rpx;
+    height: 100rpx;
     border-radius: 50%;
     position: absolute;
     left: 0;
@@ -27,15 +28,15 @@
   }
   .delete {
     width: 100rpx;
-    height: 100rpx;
+    height: 90rpx;
     background: red;
     color: #fff;
     position: absolute;
     right: 0;
     top: 0;
     z-index: 1;
+    margin-top: 5rpx;
     text-align: center;
-    line-height: 100rpx;
-
+    line-height: 90rpx;
   }
 }

@@ -1,2 +1,9 @@
-<!--pages/friendList/friendList.wxml-->
-<text>pages/friendList/friendList.wxml</text>
+<view class="friendList">
+<text>好友列表</text>
+<navigator url="" open-type="navigate">
+<view class="">
+<text>修改个性签名</text>
+<text class="iconfont"></text>
+</view>
+</navigator>
+</view>

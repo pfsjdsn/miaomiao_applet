@@ -17,8 +17,7 @@ Page({
     // 登录按钮是否可用
     disabled: false,
     // 用户操作列表
-    userList: [
-      {
+    userList: [{
         url: '../editUserInfo/editUserInfo',
         text: '编辑个人信息',
         iconName: 'iconxiangyou'
@@ -33,7 +32,7 @@ Page({
         text: '个人主页',
         iconName: 'iconxiangyou',
       }
-    ], 
+    ],
     // 自己当前的用户id
     id: ''
 
@@ -43,6 +42,7 @@ Page({
   },
   // 当页面渲染完，登录过的用户自动登录
   onReady() {
+    this.getLocation()
     wx.cloud.callFunction({
       name: 'login',
       data: {}
@@ -61,8 +61,7 @@ Page({
             id: app.userInfo._id
           })
           this.getMessage()
-        }
-        else {
+        } else {
           this.setData({
             disabled: false
           })
@@ -70,7 +69,7 @@ Page({
       })
     })
   },
-  onShow () {
+  onShow() {
     this.setData({
       userPhoto: app.userInfo.userPhoto,
       nickName: app.userInfo.nickName,
@@ -97,6 +96,10 @@ Page({
           time: new Date(),
           // 是否位置共享
           isLocation: true,
+          // 经度
+          longitude: this.longitude,
+          // 纬度
+          latitude: this.latitude,
           // 好友列表
           friendList: []
         }
@@ -117,13 +120,13 @@ Page({
     }
   },
   // 监听消息的变化 
-  getMessage () {
+  getMessage() {
     db.collection('message').where({
       userId: app.userInfo._id
     }).watch({
-      onChange: function(snapshot) {
+      onChange: function (snapshot) {
         console.log(snapshot);
-        
+
         if (snapshot.docChanges.length) {
           let list = snapshot.docChanges[0].doc.list
           // 如果有未读消息
@@ -140,13 +143,23 @@ Page({
             })
             app.userMessage = list
           }
-        }
-        else {
+        } else {
 
         }
       },
-      onError: function(err) {
+      onError: function (err) {
         console.error('the watch closed because of error', err)
+      }
+    })
+  },
+  // 获取经纬度
+  getLocation() {
+    wx.getLocation({
+      type: 'gcj02',
+      success: (res) => {
+        this.latitude = res.latitude
+        this.longitude = res.longitude
+
       }
     })
   }

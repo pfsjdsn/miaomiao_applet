@@ -1,9 +1,14 @@
-<view class="friendList">
-<text>好友列表</text>
-<navigator url="" open-type="navigate">
-<view class="">
-<text>修改个性签名</text>
-<text class="iconfont"></text>
-</view>
-</navigator>
+<view class="friend_list">
+  <text>好友列表：</text>
+  <navigator open-type="navigate" 
+  wx:for="{{friendList}}" wx:key="{{index}}"
+  url="{{'../detail/detail/userId?' + item._id}}">
+    <view class="friend_list_item">
+      <view>
+        <image src="{{item.userPhoto}}" />
+        <text>{{item.nickName}}</text>
+      </view>
+      <text class="iconfont iconxiangyou"></text>
+    </view>
+  </navigator>
 </view>

@@ -100,6 +100,8 @@ Page({
           longitude: this.longitude,
           // 纬度
           latitude: this.latitude,
+          // 构造一个地理位置 ”点“,用过获取附近的点
+          location: db.Geo.Point(this.longitude, this.latitude),
           // 好友列表
           friendList: []
         }

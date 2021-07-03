@@ -42,7 +42,11 @@ Page({
           latitude,
           longitude
         })
+        this.getNearUser()
       }
     })
+  },
+  getNearUser() {
+
   }
 })

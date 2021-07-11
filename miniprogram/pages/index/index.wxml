@@ -2,6 +2,7 @@
 <wxs src="../../utils/unitFormat.wxs" module="m2" />
 
 <search />
+<!--  -->
 <view class="index" style="margin-top: 150rpx;">
   <!-- 轮播图 -->
   <swiper class="index_swiper" indicator-dots autoplay circular>

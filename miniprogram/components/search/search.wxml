@@ -1,4 +1,4 @@
-<view :class="{{isFocus ? 'container_focus' : 'container'}}">
+<view class="{{isFocus ? 'container_focus' : 'container'}}">
   <view class="search">
     <view class="search_text">
       <text class="iconfont iconsousuo"></text>
@@ -6,4 +6,24 @@
     </view>
     <view class="search_cancel" wx:if="{{isFocus}}">取消</view>
   </view>
+  <view class="search_history">
+    <text>历史记录</text>
+    <text class="iconfont iconshanchu"></text>
+  </view>
+  <view class="search_history_btn">
+    <text>aa</text>
+    <text>aa</text>
+    <text>aa</text>
+    <text>aa</text>
+    <text>aa</text>
+  </view>
+  <navigator open-type="navigate" url="">
+    <view class="search_list_item">
+      <view>
+        <image src="" />
+        <text>bbb</text>
+      </view>
+      <text class="iconfont iconxiangyou"></text>
+    </view>
+  </navigator>
 </view>

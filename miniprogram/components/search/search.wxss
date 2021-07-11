@@ -21,6 +21,9 @@
   height: 60rpx;
   background: #fff;
 }
+.container .search .search_text input {
+  flex: 1;
+}
 .container .search .search_text .iconsousuo {
   margin: 0 10rpx;
 }
@@ -49,6 +52,9 @@
   border-radius: 10rpx;
   height: 60rpx;
   background: #fff;
+}
+.container_focus .search .search_text input {
+  flex: 1;
 }
 .container_focus .search .search_text .iconsousuo {
   margin: 0 10rpx;

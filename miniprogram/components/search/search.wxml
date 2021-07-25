@@ -2,23 +2,25 @@
   <view class="search">
     <view class="search_text">
       <text class="iconfont iconsousuo"></text>
-      <input type="text" placeholder="搜索喵星人" bindfocus="handleFocus" bindconfirm="handleConfirm"
-        confirm-type="search" />
+      <input type="text" placeholder="搜索喵星人" bindfocus="handleFocus" bindconfirm="handleConfirm" confirm-type="search"
+        value="{{searchInput}}" />
     </view>
     <view class="search_cancel" wx:if="{{isFocus}}" bindtap="handleCancel">取消</view>
   </view>
   <view class="search_history">
     <text>历史记录</text>
-    <text class="iconfont iconshanchu" bindtap="handleDelete"></text>
+    <text bindtap="handleDelete" class="iconfont iconshanchu"></text>
   </view>
   <view class="search_history_btn">
-    <text wx:for="{{historyList}}" wx:key="{{index}}">{{item}}</text>
+    <text bindtap="handleHistoryItemDel" wx:for="{{historyList}}" wx:key="{{index}}"
+      data-text="{{item}}">{{item}}</text>
   </view>
-  <navigator open-type="navigate" url="">
+  <navigator wx:for="{{searList}}" wx:key="{{index}}" url="{{'/pages/detail/detail?userId=' + item._id}}"
+    open-type="navigate">
     <view class="search_list_item">
       <view>
-        <image src="" />
-        <text>bbb</text>
+        <image src="{{item.userPhoto}}" />
+        <text>{{item.nickName}}</text>
       </view>
       <text class="iconfont iconxiangyou"></text>
     </view>

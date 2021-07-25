@@ -10,7 +10,6 @@ const db = cloud.database()
 const _ = db.command
 // 云函数入口函数
 exports.main = async (event, context) => {
-  console.log(event, 'event...');
   try {
     if (typeof event.data == 'string') {
       // eval 将字符串转成js代码
@@ -36,7 +35,7 @@ exports.main = async (event, context) => {
             ...event.data
           },
         })
-    } 
+    }
   } catch (e) {
     console.error(e)
   }

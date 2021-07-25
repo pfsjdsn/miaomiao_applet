@@ -18,37 +18,35 @@
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      console.log(options)
-      let {userId} = options 
-      console.log(userId);
+      let {
+        userId
+      } = options
       // .doc 查找
       db.collection('users').doc(userId).get()
-      .then((res) => {
-        this.setData({
-          detail: res.data
-        })
-        console.log(this.data.detail);
-        let friendList = res.data.friendList
-        if (friendList.includes( app.userInfo._id)) {
+        .then((res) => {
           this.setData({
-            isFriend: true,
+            detail: res.data
           })
-        }
-        else {
-          this.setData({
-            isFriend: true
-          }, () => {
-            // 用户看到的是自己的页面
-            if (userId === app.userInfo._id) {
-              this.setData({
-                isFriend: false,
-                isHidden: true
-              })
-            }
-          } )
-        }
-      })
-      
+          let friendList = res.data.friendList
+          if (friendList.includes(app.userInfo._id)) {
+            this.setData({
+              isFriend: true,
+            })
+          } else {
+            this.setData({
+              isFriend: true
+            }, () => {
+              // 用户看到的是自己的页面
+              if (userId === app.userInfo._id) {
+                this.setData({
+                  isFriend: false,
+                  isHidden: true
+                })
+              }
+            })
+          }
+        })
+
     },
 
     /**
@@ -58,7 +56,7 @@
 
     },
     // 添加好友
-    handleAddFriend () {
+    handleAddFriend() {
       if (app.userInfo._id) {
         db.collection('message').where({
           userId: this.data.detail._id
@@ -68,8 +66,7 @@
               wx.showToast({
                 title: '已申请过！',
               })
-            }
-            else {
+            } else {
               wx.cloud.callFunction({
                 name: 'update',
                 data: {
@@ -102,8 +99,7 @@
           }
         })
 
-      }
-      else {
+      } else {
         wx.showToast({
           title: '请先登录',
           duration: 2000,

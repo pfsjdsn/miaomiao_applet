@@ -16,17 +16,18 @@ Page({
       signature: app.userInfo.signature
     })
   },
-  handleText (ev) {
-    console.log(ev);
-    let {value} = ev.detail
+  handleText(ev) {
+    let {
+      value
+    } = ev.detail
     this.setData({
       signature: value
     })
   },
-  handleBtn () {
+  handleBtn() {
     this.updateSignature()
   },
-  updateSignature () {
+  updateSignature() {
     wx.showLoading({
       title: '更新中',
     })

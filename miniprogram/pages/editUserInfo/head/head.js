@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
 
   /**
@@ -28,7 +28,7 @@ Page({
     })
   },
   // 点击微信头像
-  handleUploadImage () {
+  handleUploadImage() {
     wx.chooseImage({
       count: 1,
       sizeType: ['compressed'], // 压缩后， original 原图
@@ -44,7 +44,7 @@ Page({
   },
   // 使用自定义头像
   // 将本地资源上传至云存储空间，如果上传至同一路径则是覆盖写
-  handleBtn () {
+  handleBtn() {
     wx.showToast({
       title: '上传中',
     })
@@ -53,7 +53,6 @@ Page({
       cloudPath: cloudPath, // 云存储路径
       filePath: this.data.userPhoto, // 文件路径
     }).then((res) => {
-      console.log(res);
       // 更新图片
       let fileID = res.fileID
       if (fileID) {
@@ -70,12 +69,14 @@ Page({
           app.userInfo.userPhoto = fileID
         })
       }
-      
+
     })
   },
   // 使用微信头像
-  bindGetUserInfo (ev) {
-    let {userInfo} = ev.detail    
+  bindGetUserInfo(ev) {
+    let {
+      userInfo
+    } = ev.detail
     if (userInfo) {
       this.setData({
         userPhoto: userInfo.avatarUrl
@@ -99,5 +100,5 @@ Page({
     }
   }
 
-  
+
 })

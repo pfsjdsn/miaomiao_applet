@@ -10,22 +10,23 @@ Page({
   },
 
 
-  onReady: function () {    
+  onReady: function () {
     this.setData({
       weixinNumber: app.userInfo.weixinNumber
     })
   },
-  handleText (ev) {
-    console.log(ev);
-    let {value} = ev.detail
+  handleText(ev) {
+    let {
+      value
+    } = ev.detail
     this.setData({
       weixinNumber: value
     })
   },
-  handleBtn () {
+  handleBtn() {
     this.updateWeixinNumber()
   },
-  updateWeixinNumber () {
+  updateWeixinNumber() {
     wx.showLoading({
       title: '更新中',
     })

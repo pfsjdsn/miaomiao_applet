@@ -18,14 +18,13 @@ Page({
   onLoad: function (options) {
 
   },
-  onShow () {
+  onShow() {
     if (app.userInfo._id) {
       this.setData({
         isLogin: true,
         userMessage: app.userMessage
       })
-    }
-    else {
+    } else {
       wx.showToast({
         title: '请先登录',
         duration: 2000,
@@ -40,8 +39,7 @@ Page({
       })
     }
   },
-  onMyEvent: function(ev){
-    console.log( ev.detail);
+  onMyEvent: function (ev) {
     this.setData({
       userMessage: []
     }, () => {

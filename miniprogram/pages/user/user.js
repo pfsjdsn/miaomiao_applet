@@ -80,7 +80,6 @@ Page({
     let {
       userInfo
     } = ev.detail
-    console.log(userInfo);
     if (!this.data.isLogin && userInfo) {
       db.collection('users').add({
         data: {
@@ -127,8 +126,6 @@ Page({
       userId: app.userInfo._id
     }).watch({
       onChange: function (snapshot) {
-        console.log(snapshot);
-
         if (snapshot.docChanges.length) {
           let list = snapshot.docChanges[0].doc.list
           // 如果有未读消息

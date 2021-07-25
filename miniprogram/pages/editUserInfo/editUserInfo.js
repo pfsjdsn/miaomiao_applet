@@ -5,8 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    editList: [
-      {
+    editList: [{
         url: '../editUserInfo/head/head',
         text: '修改头像',
         iconName: 'iconxiangyou'
@@ -18,7 +17,7 @@ Page({
       },
       {
         url: '../editUserInfo/signature/signature',
-        text: '修改修改签名',
+        text: '修改个性签名',
         iconName: 'iconxiangyou'
       },
       {
@@ -38,7 +37,7 @@ Page({
         iconName: 'iconxiangyou',
         tips: '仅好友可见'
       }
-    ], 
+    ],
 
   },
 
@@ -49,5 +48,5 @@ Page({
 
   },
 
-  
+
 })

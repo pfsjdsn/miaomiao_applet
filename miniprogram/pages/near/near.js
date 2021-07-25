@@ -30,7 +30,6 @@ Page({
    */
   onReady: function () {
     // this.mapCtx = wx.createMapContext('myMap')
-    console.log(this.mapCtx, 'this.mapCtx');
     this.getLocation()
   },
 
@@ -57,8 +56,6 @@ Page({
   },
   // 获取附近的人位置
   getNearUser() {
-    console.log(this.data.longitude);
-    console.log(this.data.latitude);
     db.collection('users').where({
       location: _.geoNear({
         geometry: db.Geo.Point(this.data.longitude, this.data.latitude),
@@ -73,7 +70,6 @@ Page({
       longitude: true,
       userPhoto: true
     }).get().then((res) => {
-      console.log(res, );
       let data = res.data
       let result = []
       if (data.length) {
@@ -82,7 +78,6 @@ Page({
             wx.cloud.getTempFileURL({
               fileList: [data[i].userPhoto],
               success: res => {
-                console.log(res, '1111111111')
                 result.push({
                   iconPath: data[i].userPhoto,
                   id: data[i]._id,
@@ -92,15 +87,12 @@ Page({
                   width: 30,
                   height: 30
                 })
-                console.log(111111111);
                 this.setData({
                   markers: result
                 })
-                console.log(this.data.markers);
               },
             })
           } else {
-            console.log('我来这里了');
             result.push({
               iconPath: data[i].userPhoto,
               // id: 1,
@@ -115,13 +107,11 @@ Page({
         this.setData({
           markers: result
         })
-        console.log(this.data.markers);
       }
     })
   },
   // 点击标记点时触发
   markertap(ev) {
-    // console.log(ev);
     wx.navigateTo({
       url: '/pages/detail/detail?userId=' + ev.target.dataset.myid,
     })

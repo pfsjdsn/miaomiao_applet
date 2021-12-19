@@ -1,4 +1,4 @@
-＃项目：喵喵交友云开发小程序（主要是iconfont 图标库、users 消息表、message用户表、云开发集合的使用）
+＃项目：开心交友云开发小程序（主要是iconfont 图标库、users 消息表、message用户表、云开发集合的使用）
 
 ## 用途：个人测试demo
 
